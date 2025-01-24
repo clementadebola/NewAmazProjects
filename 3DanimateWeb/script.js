@@ -14,7 +14,7 @@ scene.background = new THREE.Color(0xfefdfd);
 
 const camera = new THREE.PerspectiveCamera(
     75,
-    wimdow.innerWidth / window.innerWidth,
+    window.innerWidth / window.innerWidth,
     0.1,
     1000
 );
@@ -27,7 +27,7 @@ renderer.setClearColor(0xffffff, 1);
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.shadowMap.enabled = true;
-renderer.shadowMap.type = THREE.PCSoftShadowMap;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.physicallyCorrectLights = true;
 renderer.tonMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 2.5;
@@ -37,16 +37,17 @@ document.querySelector(".model").appendChild(renderer.domElement);
 const ambientLight = new THREE.AmbientLight(0xffffff, 3);
 scene.add(ambientLight);
 
-const mainLight = new THREE.Light(0xffffff, 1);
+const mainLight = new THREE.DirectionalLight(0xffffff, 1);
 mainLight.position.set(5, 10, 7.5);
 scene.add(mainLight);
 
-const filledLight = new THREE.DimentionalLight(0xffffff, 3);
-filledLight.position.set(-5, 0, -5);
-scene.add(filledLight);
+const fillLight = new THREE.DimentionalLight(0xffffff, 3);
+fillLight.position.set(-5, 0, -5);
+scene.add(fillLight);
 
 const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 2);
 hemiLight.position.set(0, 25, 0);
+scene.add(hemiLight);
 
 
 
@@ -65,7 +66,7 @@ loader.load("./Assets/josta.glb", function (gltf) {
     model.traverse((node) => {
         if (node.isMesh){
             if (node.material){
-                node.material.metaness = 0.3;
+                node.material.metalness = 0.3;
                 node.material.roughness = 0.4;
                 node.material.envMapIntensity = 1.5;
             }
@@ -85,9 +86,11 @@ loader.load("./Assets/josta.glb", function (gltf) {
     camera.position.z = maxDim * 1.5;
 
 
-    // model.scale.set(0, 0, 0);
+    model.scale.set(0, 0, 0);
     playInitialAnimation();
 
     cancelAnimationFrame(basicAnimate);
     animate();
 });
+
+
