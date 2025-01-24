@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   gsap.to(".sticky", {
     ScrollTrigger: {
       trigger: ".sticky",
-      start: " top top",
+      start: "top top",
       end: () =>
         "+=" +
         (window.innerHeight +
@@ -77,3 +77,14 @@ const moveEvent = (e) => {
 
 };
 
+const leaveEvent = () => {
+    gsap.to([emoji, emojiFace],{
+        x: 0,
+        y: 0,
+        ease: "power3.out",
+        duration: 1,
+    });
+};
+
+wrapper.addEventListener("mousemove", moveEvent);
+wrapper.addEventListener("mouseleave", leaveEvent);
