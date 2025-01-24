@@ -102,16 +102,16 @@ section.website-content{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 350px;
-    height: 350px;
-    /* background: url(./assets/sphere.png) no-repeat 50% 50%; */
+    width: 360px;
+    height: 360px;
+    background: url(./assets/sphere.png) no-repeat 50% 50%;
     background-size: cover;
     border-radius:  100%;
 }
 
 .emoji-face{
-    position: absolute;
-    top: 50%;
+    position: relative;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 225px;
@@ -119,13 +119,18 @@ section.website-content{
     flex-direction: column;
 }
 
-.eyes, .mouth-wrapper{
+.eyes, 
+.mouth-wrapper{
     flex: 1;
 }
 .eyes{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+
 } 
+.eyes img{
+    width: 170px;
+}
 
 .mouth-wrapper{
     display: flex;
