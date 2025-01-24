@@ -14,7 +14,7 @@ scene.background = new THREE.Color(0xfefdfd);
 
 const camera = new THREE.PerspectiveCamera(
     75,
-    window.innerWidth / window.innerWidth,
+    window.innerWidth / window.innerHeight,
     0.1,
     1000
 );
@@ -41,7 +41,7 @@ const mainLight = new THREE.DirectionalLight(0xffffff, 1);
 mainLight.position.set(5, 10, 7.5);
 scene.add(mainLight);
 
-const fillLight = new THREE.DimentionalLight(0xffffff, 3);
+const fillLight = new THREE.DirectionalLight(0xffffff, 3);
 fillLight.position.set(-5, 0, -5);
 scene.add(fillLight);
 
@@ -86,7 +86,7 @@ loader.load("./Assets/josta.glb", function (gltf) {
     camera.position.z = maxDim * 1.5;
 
 
-    model.scale.set(0, 0, 0);
+    // model.scale.set(0, 0, 0);
     playInitialAnimation();
 
     cancelAnimationFrame(basicAnimate);
