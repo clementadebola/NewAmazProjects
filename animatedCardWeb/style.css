@@ -28,3 +28,27 @@ section.sticky{
     height: 100vh;
     background: #5546ff;
 }
+
+nav{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    text-decoration: none;
+    text-decoration: uppercase;
+    font-family: "Humana", sans-serif;
+    font-size: 60px;
+    color: #bfff00;
+}
+
+.links{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
