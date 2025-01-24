@@ -60,8 +60,8 @@ basicAnimate();
 
 
 let model;
-const loader = new THREE.GLTFLoader();
-loader.load("./Assets/josta.glb", function (gltf) {
+const loader = new THREEGLTFLoader();
+loader.load("./assets/josta.glb", function (gltf) {
     model = gltf.scene;
     model.traverse((node) => {
         if (node.isMesh){
