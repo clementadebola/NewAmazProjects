@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   gsap.to(".sticky", {
-    ScrollTrigger: {
+    scrollTrigger: {
       trigger: ".sticky",
       start: "top top",
       end: () =>
