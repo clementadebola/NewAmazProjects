@@ -1,2 +1,2 @@
 # fanta
-This is for my youtube channel tutorial.
+A 3d animated website
